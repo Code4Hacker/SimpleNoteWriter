@@ -18,9 +18,9 @@
 
             $result  = $connect -> query($querySQL);
             if($result){
-                echo json_encode(array("post" => "POSTED_SUCCESS"));
+                echo json_encode(array("STATUS" => '200', 'MESSAGE' => 'POSTED_SUCCESS'));
             }else{
-                echo json_encode(array("post" => "POSTED_FAILED"));
+                echo json_encode(array("STATUS" => '500', 'MESSAGE' => 'POSTED_FAILED'));
             }
             break;
         case 'GET':
@@ -31,7 +31,7 @@
             while( $row = $result -> fetch_assoc() ){
                 $data_array[] = $row;
             }
-            echo json_encode(array("NOTES_POSTED"=> $data_array));
+            echo json_encode(array("STATUS" => '200', "NOTES"=> $data_array));
             break;
     }
    } else {
